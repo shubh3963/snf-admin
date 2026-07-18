@@ -191,8 +191,6 @@
   </aside>
 
   <main class="main">
-    <div class="storage-note">ℹ️ This panel stores data using the artifact's built-in storage so it persists between visits and is shared by everyone using this panel link. Swap in a real backend + authentication before handling actual client data in production.</div>
-
     <!-- ---------- DASHBOARD ---------- -->
     <section class="page active" id="page-dashboard">
       <div class="topbar">
@@ -561,6 +559,8 @@ function clientFormHtml(c){
   c = c || {name:'',contact:'',service:'',start:todayStr(),end:todayStr(),status:'Active',manager:'',fee:0};
   return `<div class="mgrid">
     <div class="mfield full"><label>Client / Company Name</label><input id="f_cname" value="${c.name}"></div>
+        <div class="mfield full"><label>Client Name</label><input id="f_cname" value="${c.name}"></div>
+    <div class="mfield full"><label>Client Contact Number</label><input id="f_cname" value="${c.name}"></div>
     <div class="mfield full"><label>Contact Email</label><input id="f_ccontact" value="${c.contact}"></div>
     <div class="mfield full"><label>Service</label><input id="f_cservice" value="${c.service}"></div>
     <div class="mfield"><label>Start Date</label><input type="date" id="f_cstart" value="${c.start}"></div>
