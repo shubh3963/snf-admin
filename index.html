@@ -170,8 +170,9 @@
     <div class="field"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••"></div>
     <button class="login-btn" id="loginBtn">Sign In →</button>
     <div class="login-err" id="loginErr">Incorrect username or password.</div>
-    <div class="login-hint">Demo credentials: <b>admin</b> / <b>admin123</b>. This is a UI-level demo login — wire up real authentication before going live.</div>
-  </div>
+<div class="login-hint">
+Welcome to SNF Admin Panel</div>
+</div>
 </div>
 
 <!-- ===================== APP ===================== -->
@@ -191,8 +192,6 @@
   </aside>
 
   <main class="main">
-    <div class="storage-note">ℹ️ This panel stores data using the artifact's built-in storage so it persists between visits and is shared by everyone using this panel link. Swap in a real backend + authentication before handling actual client data in production.</div>
-
     <!-- ---------- DASHBOARD ---------- -->
     <section class="page active" id="page-dashboard">
       <div class="topbar">
@@ -373,7 +372,7 @@ document.getElementById('loginPass').addEventListener('keydown', e=>{ if(e.key==
 function doLogin(){
   const u = document.getElementById('loginUser').value.trim();
   const p = document.getElementById('loginPass').value.trim();
-  if(u==='admin' && p==='admin123'){
+  if(u==='snfecomm3963' && p==='SNF@#$3963'){
     document.getElementById('loginScreen').style.display='none';
     document.getElementById('app').classList.add('show');
     boot();
@@ -551,6 +550,8 @@ function clientFormHtml(c){
   c = c || {name:'',contact:'',service:'',start:todayStr(),end:todayStr(),status:'Active',manager:'',fee:0};
   return `<div class="mgrid">
     <div class="mfield full"><label>Client / Company Name</label><input id="f_cname" value="${c.name}"></div>
+        <div class="mfield full"><label>Client Name</label><input id="f_cname" value="${c.name}"></div>
+    <div class="mfield full"><label>Client Contact Number</label><input id="f_cname" value="${c.name}"></div>
     <div class="mfield full"><label>Contact Email</label><input id="f_ccontact" value="${c.contact}"></div>
     <div class="mfield full"><label>Service</label><input id="f_cservice" value="${c.service}"></div>
     <div class="mfield"><label>Start Date</label><input type="date" id="f_cstart" value="${c.start}"></div>
