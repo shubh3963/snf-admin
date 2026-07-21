@@ -674,11 +674,9 @@ function renderDashboard(){
   const activeClients = CLIENTS.filter(c=>computeClientStatus(c)!=='Expired').length;
   const expiringSoon = CLIENTS.filter(c=>computeClientStatus(c)==='Expiring Soon').length;
   const pendingAmt = PAYMENTS.filter(p=>computePaymentStatus(p)!=='Paid').reduce((s,p)=>s+Number(p.amount||0),0);
-  const monthRevenue = PAYMENTS.filter(p=>{
-    if(!p.paid) return false;
-    const d = new Date(p.paid); const now = new Date();
-    return d.getMonth()===now.getMonth() && d.getFullYear()===now.getFullYear();
-  }).reduce((s,p)=>s+Number(p.amount||0),0);
+  const monthRevenue = PAYMENTS.reduce((total, payment) => {
+    return total + Number(payment.amount || 0);
+}, 0);
   const newLeadsWeek = LEADS.filter(l=> daysDiff(l.lastContact) >= -7).length;
   const converted = LEADS.filter(l=>l.status==='Converted').length;
   const convRate = LEADS.length ? Math.round((converted/LEADS.length)*100) : 0;
